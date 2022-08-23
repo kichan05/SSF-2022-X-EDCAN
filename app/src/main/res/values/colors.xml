@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="materialGray0">#f8f9fa</color>
+    <color name="materialGray1">#f1f3f5</color>
+    <color name="materialGray2">#e9ecef</color>
+    <color name="materialGray3">#dee2e6</color>
+    <color name="materialGray4">#ced4da</color>
+    <color name="materialGray5">#adb5bd</color>
+    <color name="materialGray6">#868e96</color>
+    <color name="materialGray7">#495057</color>
+    <color name="materialGray8">#343a40</color>
+    <color name="materialGray9">#212529</color>
+    <color name="gray1">#E9E9E9</color>
+
+    <color name="flatPurple">#6c63ff</color>
+    <color name="flatBlue">#536dfe</color>
+    <color name="flatLightBlue">#00b0ff</color>
+    <color name="flatGreen">#1abc9c</color>
+    <color name="flatYellow">#f1c40f</color>
+    <color name="flatRed">#e74c32</color>
+    <color name="flatBlack">#121212</color>
+
+    <color name="edcan_blue">#00b8d4</color>
+    <color name="edcan_gray">#445b63</color>
+</resources>

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="kr.edcan.ssf2022.ui.write.WriteViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.write.WriteActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_st"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/app_padding_ve"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/app_padding_ve"
+            />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_write"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            app:title="일기 작성하기"
+            app:navigationIcon="@drawable/ic_keyboard_arrow_left"
+
+            android:background="?attr/toolbarBackgroundColor"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/txt_write_weatherTitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="오늘 "
+            android:textSize="24sp"
+            android:textFontWeight="500"
+
+            android:layout_marginTop="16dp"
+
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintTop_toBottomOf="@+id/tb_write"
+            />
+
+        <TextView
+            android:id="@+id/txt_write_weatherTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="날씨"
+            android:textFontWeight="500"
+            android:textSize="24sp"
+            android:textColor="@color/edcan_blue"
+
+            app:layout_constraintStart_toEndOf="@id/txt_write_weatherTitle1"
+            app:layout_constraintTop_toTopOf="@+id/txt_write_weatherTitle1"
+            app:layout_constraintBottom_toBottomOf="@id/txt_write_weatherTitle1"
+            />
+
+        <TextView
+            android:id="@+id/txt_write_weatherTitle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="는 어땠나요?"
+            android:textFontWeight="500"
+            android:textSize="24sp"
+
+            app:layout_constraintStart_toEndOf="@id/txt_write_weatherTitle2"
+            app:layout_constraintTop_toTopOf="@+id/txt_write_weatherTitle2"
+            app:layout_constraintBottom_toBottomOf="@id/txt_write_weatherTitle2"
+            />
+
+        <RadioGroup
+            android:id="@+id/gb_write_weather"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+
+            app:layout_constraintTop_toBottomOf="@id/txt_write_weatherTitle1"
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintEnd_toEndOf="@id/line_end"
+            >
+
+            <RadioButton
+                android:id="@+id/rb_write_sun"
+                bindRbCurrentSelect="@{vm.weather}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@drawable/sc_weather_sun" />
+
+            <RadioButton
+                android:id="@+id/rb_write_cloud"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:button="@drawable/sc_weather_cloud"
+                android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.weather}"
+                />
+            <RadioButton
+                android:id="@+id/rb_write_rain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:button="@drawable/sc_weather_rain"
+                android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.weather}"
+                />
+            <RadioButton
+                android:id="@+id/rb_write_sunRain"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:button="@drawable/sc_weather_sun_rain"
+                android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.weather}"
+                />
+            <RadioButton
+                android:id="@+id/rb_write_wind"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:button="@drawable/sc_weather_wind"
+                android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.weather}"
+                />
+            <RadioButton
+                android:id="@+id/rb_write_snow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:button="@drawable/sc_weather_snow"
+                android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.weather}"
+                />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/txt_write_emotionTitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="오늘 "
+            android:textSize="24sp"
+            android:textFontWeight="500"
+
+            android:layout_marginTop="16dp"
+
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintTop_toBottomOf="@+id/gb_write_weather"
+            />
+
+        <TextView
+            android:id="@+id/txt_write_emotionTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="기분"
+            android:textFontWeight="500"
+            android:textSize="24sp"
+            android:textColor="@color/edcan_blue"
+
+            app:layout_constraintStart_toEndOf="@id/txt_write_emotionTitle1"
+            app:layout_constraintTop_toTopOf="@+id/txt_write_emotionTitle1"
+            app:layout_constraintBottom_toBottomOf="@id/txt_write_emotionTitle1"
+            />
+
+        <TextView
+            android:id="@+id/txt_write_emotionTitle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="은 어땠나요?"
+            android:textFontWeight="500"
+            android:textSize="24sp"
+
+            app:layout_constraintStart_toEndOf="@id/txt_write_emotionTitle2"
+            app:layout_constraintTop_toTopOf="@+id/txt_write_emotionTitle2"
+            app:layout_constraintBottom_toBottomOf="@id/txt_write_emotionTitle2"
+            />
+
+        <RadioGroup
+            android:id="@+id/gb_write_emotion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+
+            app:layout_constraintTop_toBottomOf="@id/txt_write_emotionTitle1"
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintEnd_toEndOf="@id/line_end"
+            >
+
+            <RadioButton
+                android:id="@+id/rb_gb_happy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@drawable/sc_emotion_happy"
+                bindRbCurrentSelect="@{vm.emotion}"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/rb_gb_fun"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.emotion}"
+                android:button="@drawable/sc_emotion_fun"
+                />
+
+            <RadioButton
+                android:id="@+id/rb_gb_wow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.emotion}"
+                android:button="@drawable/sc_emotion_wow"
+                />
+
+            <RadioButton
+                android:id="@+id/rb_gb_normal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.emotion}"
+                android:button="@drawable/sc_emotion_normal"
+                />
+
+            <RadioButton
+                android:id="@+id/rb_gb_sad"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.emotion}"
+                android:button="@drawable/sc_emotion_sad"
+                />
+
+            <RadioButton
+                android:id="@+id/rb_gb_angry"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                bindRbCurrentSelect="@{vm.emotion}"
+                android:button="@drawable/sc_emotion_angry"
+                />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/txt_write_contentTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="오늘은 어떤일이 있었나요?"
+            android:textFontWeight="500"
+            android:textSize="24sp"
+
+            android:layout_marginTop="12dp"
+
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintTop_toBottomOf="@id/gb_write_emotion"
+            />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:text="@={vm.content}"
+            android:hint="일기를 작성 해주세요"
+            android:gravity="top"
+
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="22dp"
+
+            app:layout_constraintTop_toBottomOf="@id/txt_write_contentTitle"
+            app:layout_constraintBottom_toTopOf="@id/btn_write_save"
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintEnd_toEndOf="@id/line_end"
+            />
+
+
+        <Button
+            android:id="@+id/btn_write_save"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="저장"
+            android:paddingHorizontal="100dp"
+
+            android:layout_marginBottom="25dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintEnd_toEndOf="@id/line_end"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

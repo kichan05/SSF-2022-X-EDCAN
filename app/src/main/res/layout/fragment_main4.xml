@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.Main3Fragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_st"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/app_padding_ve"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/app_padding_ve"
+            />
+
+        <Button
+            android:id="@+id/btn_main4_openSource"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="오픈소스 라이브러리"
+
+            android:layout_marginTop="20dp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintEnd_toEndOf="@id/line_end"
+            />
+
+        <Button
+            android:id="@+id/btn_main4_club"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="동아리 정보 보기"
+
+            android:layout_marginTop="20dp"
+
+            app:layout_constraintTop_toBottomOf="@id/btn_main4_openSource"
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintEnd_toEndOf="@id/line_end"
+            />
+
+        <Button
+            android:id="@+id/btn_main4_developer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="개발자 정보 보기"
+
+            android:layout_marginTop="20dp"
+
+            app:layout_constraintTop_toBottomOf="@id/btn_main4_club"
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintEnd_toEndOf="@id/line_end"
+            />
+
+
+        <Button
+            android:id="@+id/btn_main4_logout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="로그아웃"
+            style="@style/customButton3Style"
+
+            android:layout_marginBottom="20dp"
+
+            app:layout_constraintBottom_toTopOf="@id/btn_main4_donation"
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintEnd_toEndOf="@id/line_end" />
+
+        <Button
+            android:id="@+id/btn_main4_donation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="개발자 후원"
+            style="@style/customButton2Style"
+
+            android:layout_marginBottom="20dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintEnd_toEndOf="@id/line_end"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

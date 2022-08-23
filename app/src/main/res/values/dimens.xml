@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_text_weight">700</dimen>
+    <dimen name="editText_text_weight">700</dimen>
+    <dimen name="app_radius">15dp</dimen>
+    <dimen name="app_padding_ve">32dp</dimen>
+</resources>

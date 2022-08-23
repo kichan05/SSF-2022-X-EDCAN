@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nv_main_page"
+    app:startDestination="@id/register1Fragment">
+
+
+    <fragment
+        android:id="@+id/register1Fragment"
+        android:name="kr.edcan.ssf2022.ui.register.Register1Fragment"
+        android:label="fragment_register1"
+        tools:layout="@layout/fragment_register1" >
+        <action
+            android:id="@+id/action_register1Fragment_to_register2Fragment"
+            app:destination="@id/register2Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/register2Fragment"
+        android:name="kr.edcan.ssf2022.ui.register.Register2Fragment"
+        android:label="Register2Fragment" >
+        <action
+            android:id="@+id/action_register2Fragment_to_register3Fragment"
+            app:destination="@id/register3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/register3Fragment"
+        android:name="kr.edcan.ssf2022.ui.register.Register3Fragment"
+        android:label="Register3Fragment" />
+
+
+</navigation>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="kr.edcan.ssf2022.ui.diaryDetail.DiaryDetailViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.diaryDetail.DiaryDetailActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_st"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/app_padding_ve"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/app_padding_ve"
+            />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            bindToolBarDateFormat="@{vm.diaryDate.date}"
+            app:navigationIcon="@drawable/ic_keyboard_arrow_left"
+
+            android:background="?attr/toolbarBackgroundColor"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
+        <TextView
+            android:id="@+id/txt_detail_weatherTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="날씨 : "
+            android:textSize="24sp"
+            android:textFontWeight="500"
+
+            android:layout_marginTop="16dp"
+
+            app:layout_constraintTop_toBottomOf="@id/tb_detail"
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            />
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+
+            bindWeatherAcIconId="@{vm.diaryDate.weather}"
+            app:layout_constraintTop_toTopOf="@id/txt_detail_weatherTitle"
+            app:layout_constraintBottom_toBottomOf="@id/txt_detail_weatherTitle"
+            app:layout_constraintStart_toEndOf="@id/txt_detail_weatherTitle"
+            />
+
+        <TextView
+            android:id="@+id/txt_detail_emotionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="오늘의 기분 : "
+            android:textSize="24sp"
+            android:textFontWeight="500"
+
+            android:layout_marginTop="16dp"
+
+            app:layout_constraintTop_toBottomOf="@id/txt_detail_weatherTitle"
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            />
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+
+            bindEmotionAcIconId="@{vm.diaryDate.emotion}"
+            app:layout_constraintTop_toTopOf="@id/txt_detail_emotionTitle"
+            app:layout_constraintBottom_toBottomOf="@id/txt_detail_emotionTitle"
+            app:layout_constraintStart_toEndOf="@id/txt_detail_emotionTitle"
+            />
+
+        <View
+            android:id="@+id/view_detail_hr"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+
+            android:background="@color/materialGray3"
+
+            android:layout_marginTop="20dp"
+
+            app:layout_constraintTop_toBottomOf="@id/txt_detail_emotionTitle"
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintEnd_toEndOf="@id/line_end"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:lineSpacingExtra="10dp"
+            android:text="@{vm.diaryDate.content}"
+            android:textFontWeight="300"
+            android:textSize="20sp"
+
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="12dp"
+
+            app:layout_constraintEnd_toEndOf="@id/line_end"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/line_st"
+            app:layout_constraintTop_toBottomOf="@+id/view_detail_hr"
+            tools:text="오늘은 기말고사를 봤다.
+\n자료구조에서 마지막 문제로 접근 제한자가 나왔다.
+\n엄청 했갈렸었다. protected인지 default인지 엄청 고민했다.
+\n고민끝에 default를 선택했는데
+\n정답은 protected였다
+\n슬펐다
+\n그래도 이거 하나 틀려서 95.1점이었다.
+\n다른 문제를 더 틀리지 않아서 행복했다.
+\n이번 시험은 전체적으로 성적이 올라서 행복하다.
+\n물리와 일본어 성적이 2배가 됐다" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

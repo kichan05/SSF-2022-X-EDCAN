@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm"
+            type="kr.edcan.ssf2022.ui.register.Register1ViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.register.Register1Fragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="32dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/line2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="32dp" />
+
+
+        <View
+            android:id="@+id/ring1"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+
+            android:background="@drawable/sh_circle_fill"
+
+            android:layout_marginTop="32dp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ring2"
+            app:layout_constraintHorizontal_chainStyle="packed" />
+
+        <View
+            android:id="@+id/ring2"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+
+            android:background="@drawable/sh_circle_ring"
+
+            android:layout_marginHorizontal="24dp"
+
+            app:layout_constraintTop_toTopOf="@id/ring1"
+            app:layout_constraintStart_toEndOf="@id/ring1"
+            app:layout_constraintEnd_toStartOf="@id/ring3" />
+
+        <View
+            android:id="@+id/ring3"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+
+            android:background="@drawable/sh_circle_ring"
+
+            app:layout_constraintTop_toTopOf="@id/ring1"
+            app:layout_constraintStart_toEndOf="@id/ring2"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="회원가입"
+            android:textFontWeight="700"
+            android:textSize="18sp"
+
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+
+            app:layout_constraintStart_toStartOf="@id/ring1"
+            app:layout_constraintEnd_toStartOf="@id/txt_titleCount"
+            app:layout_constraintTop_toBottomOf="@id/ring1" />
+
+        <TextView
+            android:id="@+id/txt_titleCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="(1/3)"
+            android:textFontWeight="400"
+            android:textSize="18sp"
+
+            app:layout_constraintTop_toTopOf="@id/txt_title"
+            app:layout_constraintStart_toEndOf="@id/txt_title"
+            app:layout_constraintEnd_toEndOf="@id/ring3" />
+
+        <ImageView
+            android:id="@+id/img_register1_undraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/undraw_register1"
+
+            android:layout_marginTop="34dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_title" />
+
+        <TextView
+            android:id="@+id/msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="이름과 이메일을 입력해주세요"
+            android:textSize="22sp"
+            android:textFontWeight="500"
+
+            android:layout_marginTop="12dp"
+
+            app:layout_constraintTop_toBottomOf="@id/img_register1_undraw"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/edt_register1_nameInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:hint="이름"
+            android:text="@={vm.name}"
+            android:maxLines="1"
+
+            android:layout_marginTop="26dp"
+
+            app:layout_constraintTop_toBottomOf="@id/msg"
+            app:layout_constraintStart_toStartOf="@id/line1"
+            app:layout_constraintEnd_toEndOf="@id/line2" />
+
+        <EditText
+            android:id="@+id/edt_register1_emailInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:hint="이메일"
+            android:text="@={vm.email}"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+
+            android:layout_marginTop="16dp"
+
+            app:layout_constraintTop_toBottomOf="@id/edt_register1_nameInput"
+            app:layout_constraintStart_toStartOf="@id/line1"
+            app:layout_constraintEnd_toEndOf="@id/line2" />
+
+        <Button
+            android:id="@+id/btn_register1_next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="16dp"
+            android:enabled="@{vm.isNextEnable}"
+
+            android:text="다음"
+
+            app:layout_constraintTop_toBottomOf="@id/edt_register1_emailInput"
+            app:layout_constraintEnd_toEndOf="@id/line2"
+            app:layout_constraintStart_toStartOf="@id/line1"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="에러 문구"
+            android:textColor="@color/flatRed"
+            android:textSize="18sp"
+            android:textFontWeight="500"
+
+            android:layout_marginTop="12dp"
+
+            bindInputErrorMessage="@{vm.errorMessage}"
+
+            app:layout_constraintTop_toBottomOf="@id/btn_register1_next"
+            app:layout_constraintStart_toStartOf="@id/line1"
+            app:layout_constraintEnd_toEndOf="@id/line2"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

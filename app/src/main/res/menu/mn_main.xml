@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main1Fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="홈" />
+    <item
+        android:id="@+id/main2Fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_diary"
+        android:title="일기" />
+    <item
+        android:id="@+id/main3Fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_profile"
+        android:title="프로필" />
+    <item
+        android:id="@+id/main4Fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_more"
+        android:title="더보기" />
+</menu>
