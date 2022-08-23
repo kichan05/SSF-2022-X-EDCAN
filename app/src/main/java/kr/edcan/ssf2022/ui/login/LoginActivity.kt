@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -27,35 +28,31 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel.autoLogin()
 
-        with(binding) {
-            btnLoginRegister.setOnClickListener {
-                val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
-                startActivity(intent)
-            }
 
-            btnLoginLogin.setOnClickListener {
-                if (viewModel.inputEmail.value.isNullOrBlank()) {
-                    viewModel.errorMessage.value = "이메일을 입력해주세요."
-                    return@setOnClickListener
-                }
-                if (!Patterns.EMAIL_ADDRESS.matcher(viewModel.inputEmail.value!!).matches()) {
-                    viewModel.errorMessage.value = "이메일이 형식에 맞지 않습니다."
-                    return@setOnClickListener
-                }
-                if (viewModel.inputPassword.value.isNullOrBlank()) {
-                    viewModel.errorMessage.value = "비밀번호를 입력해주세요."
-                    return@setOnClickListener
-                }
-                if (viewModel.inputPassword.value!!.length < 8) {
-                    viewModel.errorMessage.value = "비밀번호는 8글자 이상으로 해주세요."
-                    return@setOnClickListener
-                }
+        // todo Mission 1 : id가 btn_Login_register인 Button을 선택해서 registerBtn에 저장하세요.
+        val registerBtn = findViewById<Button>(R.id.btn_login_register)
 
-//                viewModel.errorMessage.value = null
 
+        /* todo Mission 2 : 선택해온 registerBtn에 Click Evnet를 만들어서 회원가입 화면으로 이동해주세요
+        *                   회원가입 화면은 RegisterActivity입니다.   */
+        registerBtn.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        // todo Mission 3 : id가 btn_login_login인 Button을 선택해서 loginBtn에 저장하세요.
+        val loginBtn = findViewById<Button>(R.id.btn_login_login)
+
+
+        /* todo Mission 4 : 선택해온 loginBtn에 Click Evnet를 만들어서 로그인을 진행해주세요.
+        *                   로그인을 할때는 viewModel.login() 함수를 실행하면 됩니다. */
+        loginBtn.setOnClickListener {
+            if(checkInput()){
                 viewModel.login()
             }
         }
+
 
         viewModel.state.observe(this) {
             when (it) {
@@ -69,9 +66,6 @@ class LoginActivity : AppCompatActivity() {
                     Log.d("loginLog", "로그인 실패")
                     viewModel.errorMessage.value = "로그인에 실패 했습니다."
                 }
-//                else -> {
-//                    Log.d("loginLog", "버그")
-//                }
             }
         }
 
@@ -85,6 +79,27 @@ class LoginActivity : AppCompatActivity() {
                 finish()
             }
         }
+    }
+
+    private fun checkInput() : Boolean {
+        if (viewModel.inputEmail.value.isNullOrBlank()) {
+            viewModel.errorMessage.value = "이메일을 입력해주세요."
+            return false
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(viewModel.inputEmail.value!!).matches()) {
+            viewModel.errorMessage.value = "이메일이 형식에 맞지 않습니다."
+            return false
+        }
+        if (viewModel.inputPassword.value.isNullOrBlank()) {
+            viewModel.errorMessage.value = "비밀번호를 입력해주세요."
+            return false
+        }
+        if (viewModel.inputPassword.value!!.length < 8) {
+            viewModel.errorMessage.value = "비밀번호는 8글자 이상으로 해주세요."
+            return false
+        }
+
+        return true
     }
 
     override fun onRestart() {
