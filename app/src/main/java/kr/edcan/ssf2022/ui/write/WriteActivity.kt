@@ -87,8 +87,8 @@ class WriteActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.menu_edcan -> {
-                // todo Special Mission : EDCAN 웹 사이트로 이동하는 코드를 작성해주세요.
-                
+                // todo Special Mission : EDCAN 웹 사이트로 이동하는 코드를 작성해주세요 .
+
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.edcan.kr"))
                 startActivity(intent)
             }
