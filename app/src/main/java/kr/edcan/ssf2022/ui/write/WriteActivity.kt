@@ -44,26 +44,25 @@ class WriteActivity : AppCompatActivity() {
         }
 
         // todo Mission 5 : id가 btn_write_save인 Button을 선택해서 saveBtn에 저장하세요.
-        val saveBtn = findViewById<Button>(R.id.btn_write_save)
+
+
+
+
 
         /* todo Mission 6 : 선택해온 saveBtn에 Click Evnet를 만들어서 일기 작성을 실행해주세요.
                             일기를 작성할때는 viewModel.writeDiary() 함수를 실행하면 됩니다.
         *                   일기를 작성할때 일기가 비어있다면 "일기를 작성 해주세요."를 토스트 메시지로 보여주세요.   */
-        binding.btnWriteSave.setOnClickListener {
-            if (viewModel.content.value.isNullOrBlank()) {
-                Toast.makeText(this, "일기를 작성 해주세요.", Toast.LENGTH_SHORT).show()
-            }
-            else{
-                viewModel.writeDiary()
-            }
-        }
+
+
+
+
 
 
         viewModel.state.observe(this){
             when(it){
                 State.SUCCESS -> {
                     // todo Mission 7 : "일기를 작성을 했어요"를 토스트 메시지로 보여주세요.
-                    Toast.makeText(this, "일기를 작성했어요", Toast.LENGTH_SHORT).show()
+
 
                     finish()
                 }
@@ -73,7 +72,7 @@ class WriteActivity : AppCompatActivity() {
                 State.FAIL -> {
                     // todo Mission 8 : "일기를 작성을 실패 했어요"를 토스트 메시지로 보여주세요.
 
-                    Toast.makeText(this, "일기를 작성을 실패 했어요", Toast.LENGTH_SHORT).show()
+
                 }
             }
         }
@@ -89,8 +88,7 @@ class WriteActivity : AppCompatActivity() {
             R.id.menu_edcan -> {
                 // todo Special Mission : EDCAN 웹 사이트로 이동하는 코드를 작성해주세요.
                 
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.edcan.kr"))
-                startActivity(intent)
+
             }
         }
 
