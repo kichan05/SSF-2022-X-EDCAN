@@ -39,7 +39,6 @@ class LoginActivity : AppCompatActivity() {
 
 
         // todo Mission 3 : id가 btn_login_login인 Button을 선택해서 loginBtn에 저장하세요.
-        val loginBtn = findViewById<Button>(R.id.btn_login_login)
 
 
         /* todo Mission 4 : 선택해온 loginBtn에 Click Evnet를 만들어서 로그인을 진행해주세요.
